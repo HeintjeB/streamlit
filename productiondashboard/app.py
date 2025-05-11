@@ -19,6 +19,11 @@ day = int((datetime.now() - timedelta(days=7)).strftime("%d"))
 year_2 = int((datetime.now() + timedelta(days=21)).strftime("%Y"))
 month_2 = int((datetime.now() + timedelta(days=21)).strftime("%m"))
 day_2= int((datetime.now() + timedelta(days=21)).strftime("%d"))
+now_yyyww = (datetime.now()).strftime("%Y%w")
+now_year = datetime.now().year
+list_week = []
+for i in range(1,10):
+    list_week.append(int((datetime.now() - timedelta(7*i)).stftime("%w")))
 
 st.set_page_config(
     page_title="Real-Time Productie Planning Dashboard",
@@ -42,7 +47,7 @@ for _ in range(15):
     product_list.append(product_name)
 
 operations = ['Welding', 'Milling', 'Lathe']
-
+ 
 for operation in operations:
     for _ in range(250):  
         start_date = fake.date_between(start_date=date(year,month,day), end_date=date(year_2,month_2,day_2))
@@ -90,7 +95,7 @@ with placeholder.container():
     )
 
     kpi2.metric(
-        label=f"Realized hours week 202350:",
+        label=f"Realized hours week {now_yyyww}:",
         value=realized_hours_kpi,
         delta=-120 + realized_hours_kpi,
     )
@@ -133,7 +138,7 @@ with placeholder.container():
                 xaxis = dict(
                 tickmode = 'array',
                 tickvals = row_num,
-                ticktext = [f"2023{week}" for week in range(40, 51)]
+                ticktext = [f"{week}" for week in list_week]
             )
             )
             
