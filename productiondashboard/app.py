@@ -25,6 +25,7 @@ list_week = []
 for i in range(1,10):
     list_week.append(int((datetime.now() - timedelta(7*i)).strftime("%w")))
 
+
 st.set_page_config(
     page_title="Real-Time Productie Planning Dashboard",
     page_icon="✅",
@@ -138,7 +139,7 @@ with placeholder.container():
                 xaxis = dict(
                 tickmode = 'array',
                 tickvals = row_num,
-                ticktext = [f"{week}" for week in list_week]
+                ticktext = [f"{now_year}{week}" for week in list_week]
             )
             )
             
