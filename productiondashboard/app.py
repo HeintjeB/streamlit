@@ -19,11 +19,11 @@ day = int((datetime.now() - timedelta(days=7)).strftime("%d"))
 year_2 = int((datetime.now() + timedelta(days=21)).strftime("%Y"))
 month_2 = int((datetime.now() + timedelta(days=21)).strftime("%m"))
 day_2= int((datetime.now() + timedelta(days=21)).strftime("%d"))
-now_yyyww = (datetime.now()).strftime("%Y%w")
+now_yyyww = (datetime.now()).strftime("%Y%U")
 now_year = datetime.now().year
 list_week = []
 for i in range(1,10):
-    list_week.append(int((datetime.now() - timedelta(7*i)).strftime("%w")))
+    list_week.append(int((datetime.now() - timedelta(7*i)).strftime("%U")))
 
 
 st.set_page_config(
