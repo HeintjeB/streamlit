@@ -23,7 +23,7 @@ now_yyyww = (datetime.now()).strftime("%Y%w")
 now_year = datetime.now().year
 list_week = []
 for i in range(1,10):
-    list_week.append(int((datetime.now() - timedelta(7*i)).stftime("%w")))
+    list_week.append(int((datetime.now() - timedelta(7*i)).strftime("%w")))
 
 st.set_page_config(
     page_title="Real-Time Productie Planning Dashboard",
