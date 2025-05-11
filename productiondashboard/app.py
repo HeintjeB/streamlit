@@ -9,17 +9,16 @@ import streamlit as st
 from streamlit_autorefresh import st_autorefresh
 import subprocess
 import random
-from datetime import datetime,timeldelta
-from datetime import date
+from datetime import datetime, timedelta, date
 from faker import Faker
 import faker_commerce
 
-year = int((datetime.now() - timeldelta(days=7)).strftime("%Y"))
-month = int((datetime.now() - timeldelta(days=7)).strftime("%m"))
-day = int((datetime.now() - timeldelta(days=7)).strftime("%d"))
-year_2 = int((datetime.now() + timeldelta(days=21)).strftime("%Y"))
-month_2 = int((datetime.now() + timeldelta(days=21)).strftime("%m"))
-day_2= int((datetime.now() + timeldelta(days=21)).strftime("%d"))
+year = int((datetime.now() - timedelta(days=7)).strftime("%Y"))
+month = int((datetime.now() - timedelta(days=7)).strftime("%m"))
+day = int((datetime.now() - timedelta(days=7)).strftime("%d"))
+year_2 = int((datetime.now() + timedelta(days=21)).strftime("%Y"))
+month_2 = int((datetime.now() + timedelta(days=21)).strftime("%m"))
+day_2= int((datetime.now() + timedelta(days=21)).strftime("%d"))
 
 st.set_page_config(
     page_title="Real-Time Productie Planning Dashboard",
