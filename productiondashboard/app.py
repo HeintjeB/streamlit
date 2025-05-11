@@ -9,10 +9,17 @@ import streamlit as st
 from streamlit_autorefresh import st_autorefresh
 import subprocess
 import random
-from datetime import datetime
+from datetime import datetime,timeldelta
 from datetime import date
 from faker import Faker
 import faker_commerce
+
+year = int((datetime.now() - timeldelta(days=7)).strftime("%Y"))
+month = int((datetime.now() - timeldelta(days=7)).strftime("%m"))
+day = int((datetime.now() - timeldelta(days=7)).strftime("%d"))
+year_2 = int((datetime.now() + timeldelta(days=21)).strftime("%Y"))
+month_2 = int((datetime.now() + timeldelta(days=21)).strftime("%m"))
+day_2= int((datetime.now() + timeldelta(days=21)).strftime("%d"))
 
 st.set_page_config(
     page_title="Real-Time Productie Planning Dashboard",
@@ -39,7 +46,7 @@ operations = ['Welding', 'Milling', 'Lathe']
 
 for operation in operations:
     for _ in range(250):  
-        start_date = fake.date_between(start_date=date(2023,12,8), end_date=date(2024,3,10))
+        start_date = fake.date_between(start_date=date(year,month,day), end_date=date(year_2,month_2,day_2))
         Week = start_date.strftime('%Y%U')
         bweek = 'Backlog' if start_date < date.today() else ''
         production_data_dict['Hours'].append(random.randint(2, 12)) 
